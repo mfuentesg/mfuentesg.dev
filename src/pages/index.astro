@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
+---
+
+<Layout title="Marcelo Fuentes | Software Engineer">
+  <div class="flex flex-col items-center w-full h-full justify-center">
+    <h1 class="dark:text-white m-0 p-0 text-[3rem] md:text-[5rem] text-center font-extrabold">
+      Marcelo Fuentes
+    </h1>
+    <h2 class="dark:text-white md:text-[2rem] text-[1.2rem] text-center font-light">
+      <span>Father</span> | <span>Trumpet Player</span> | <span>Software Engineer</span>
+    </h2>
+
+    <div class="flex space-x-6 dark:text-white text-black justify-center mt-6">
+      <a href="https://github.com/mfuentesg" target="_blank">
+        <GithubIcon height="30" width="30" />
+      </a>
+      <a href="https://linkedin.com/in/mfuentesg" target="_blank">
+        <LinkedinIcon height="30" width="30" />
+      </a>
+      <a href="mailto:me@mfuentesg.dev" target="_blank">
+        <MailIcon height="30" width="30" />
+      </a>
+    </div>
+  </div>
+</Layout>
