@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^7.5.2",
     "@astrojs/react": "^3.0.3",
     "@astrojs/tailwind": "^5.0.1",
     "@fontsource-variable/roboto-slab": "^5.0.15",
