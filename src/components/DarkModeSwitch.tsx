@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -15,7 +15,7 @@ interface Props {
 
 export default function Switch({ className = '', theme = 'dark', onClick }: Props) {
   const [enabled, setEnabled] = useState(theme === 'dark');
-  const onClickHandler = (evt: React.MouseEvent<HTMLButtonElement>) => {
+  const onClickHandler = (evt: MouseEvent<HTMLButtonElement>) => {
     setEnabled((prevState) => !prevState);
     const newTheme = enabled ? 'light' : 'dark';
     if (onClick) {
