@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { type MouseEvent, useState } from 'react';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
