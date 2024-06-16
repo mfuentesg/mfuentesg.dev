@@ -1,7 +1,6 @@
 ---
 import '@fontsource-variable/roboto-slab';
 import DarkModeSwitch from '../components/DarkModeSwitch';
-import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
 }
@@ -24,12 +23,11 @@ if (!theme) {
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
   </head>
   <body class="bg-white dark:bg-black h-screen max-h-[-webkit-fill-available] font-body">
     <DarkModeSwitch
       client:load
-      className="absolute right-0 top-0 dark:text-white p-4 text-black"
+      className="absolute right-[20px] top-[10px] dark:text-white p-4 text-black"
       theme={theme}
     />
     <slot />
