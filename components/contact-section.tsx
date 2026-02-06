@@ -5,7 +5,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="px-6 pb-20 pt-24" aria-label="Contact">
       <div className="mx-auto max-w-5xl">
-        <SectionHeader index="03" title="Contact" />
+        <SectionHeader index="04" title="Contact" />
         <div className="mx-auto max-w-lg text-center">
           <p className="mb-6 text-muted-foreground">
             {"I'm always open to new opportunities, collaborations, or just a friendly chat about technology. Feel free to reach out."}
