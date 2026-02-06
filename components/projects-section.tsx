@@ -36,7 +36,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="px-6 py-24" aria-label="Featured projects">
       <div className="mx-auto max-w-5xl">
-        <SectionHeader index="03" title="Projects" />
+        <SectionHeader index="02" title="Projects" />
         <div className="grid gap-4 md:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />

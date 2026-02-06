@@ -26,7 +26,7 @@ export function StatusBar() {
     <div className="fixed bottom-0 left-0 right-0 z-50 flex h-7 items-center justify-between border-t border-border bg-card/80 px-4 font-mono text-[11px] text-muted-foreground backdrop-blur-sm">
       <div className="flex items-center gap-4">
         <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" style={{ animation: "glow-pulse 2s ease-in-out infinite" }} />
+          <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" style={{ animation: "glow-pulse 3s ease-in-out infinite" }} />
           <span>online</span>
         </span>
         <span className="text-border">|</span>
