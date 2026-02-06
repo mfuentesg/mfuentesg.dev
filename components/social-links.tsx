@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, BookOpen } from "lucide-react"
 
 const socials = [
   {
@@ -10,6 +10,11 @@ const socials = [
     label: "LinkedIn",
     href: "https://linkedin.com/in/mfuentesg",
     icon: Linkedin,
+  },
+  {
+    label: "Substack",
+    href: "https://substack.com/@mfuentesg",
+    icon: BookOpen,
   },
   {
     label: "Email",
