@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 210 20% 90%;
+    --card: 220 18% 9%;
+    --card-foreground: 210 20% 90%;
+    --popover: 220 18% 9%;
+    --popover-foreground: 210 20% 90%;
+    --primary: 175 70% 50%;
+    --primary-foreground: 220 20% 6%;
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 210 20% 75%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 210 10% 50%;
+    --accent: 175 70% 50%;
+    --accent-foreground: 220 20% 6%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 16%;
+    --input: 220 15% 16%;
+    --ring: 175 70% 50%;
+    --chart-1: 175 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 220 18% 9%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 175 70% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 15% 14%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 175 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 20% 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 15% 20%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(175 70% 50% / 0.5);
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Blink cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
