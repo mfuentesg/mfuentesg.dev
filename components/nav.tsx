@@ -1,6 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import React from "react"
+
+import { useState, useCallback } from "react"
 
 const links = [
   { label: "about", href: "#about" },
@@ -12,6 +14,14 @@ const links = [
 export function Nav() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }, [])
+
   return (
     <nav className="flex items-center gap-8" role="navigation" aria-label="Main navigation">
       {links.map((link, i) => (
@@ -21,6 +31,7 @@ export function Nav() {
           className="group relative font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
           onMouseEnter={() => setHoveredIndex(i)}
           onMouseLeave={() => setHoveredIndex(null)}
+          onClick={(e) => handleClick(e, link.href)}
         >
           <span className="text-primary/60">{"// "}</span>
           {link.label}

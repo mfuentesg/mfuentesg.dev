@@ -2,6 +2,7 @@
 
 import { SectionHeader } from "@/components/section-header"
 import { ProjectCard } from "@/components/project-card"
+import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import { useEffect, useState } from "react"
 
 interface ProjectData {
@@ -92,14 +93,17 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="px-6 py-24" aria-label="Featured projects">
       <div className="mx-auto max-w-5xl">
-        <SectionHeader index="02" title="Projects" />
+        <AnimateOnScroll variant="fade-left">
+          <SectionHeader index="02" title="Projects" />
+        </AnimateOnScroll>
         <div className="grid gap-4 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              {...project}
-              stars={stars[project.repo]}
-            />
+          {projects.map((project, i) => (
+            <AnimateOnScroll key={project.title} variant="fade-scale" delay={i * 0.1}>
+              <ProjectCard
+                {...project}
+                stars={stars[project.repo]}
+              />
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
