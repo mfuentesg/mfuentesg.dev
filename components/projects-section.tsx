@@ -32,38 +32,6 @@ const projects: ProjectData[] = [
     archived: true,
     githubUrl: "https://github.com/mfuentesg/SyncSettings",
   },
-  {
-    title: "Codelabel",
-    description:
-      "A CLI tool to label GitHub issues using machine learning. Automate your issue triage workflow with intelligent classification based on historical data.",
-    tags: ["Go", "Machine Learning", "CLI", "GitHub API"],
-    repo: "mfuentesg/codelabel",
-    githubUrl: "https://github.com/mfuentesg/codelabel",
-  },
-  {
-    title: "Locmock",
-    description:
-      "A lightweight geolocation mock library for testing location-based applications. Simplify development of location-aware features with configurable mock providers.",
-    tags: ["JavaScript", "Testing", "Geolocation"],
-    repo: "mfuentesg/locmock",
-    githubUrl: "https://github.com/mfuentesg/locmock",
-  },
-  {
-    title: "StyLux",
-    description:
-      "A syntax highlighting library focused on performance and customization. Render beautifully highlighted code blocks with support for multiple languages and themes.",
-    tags: ["TypeScript", "Syntax Highlighting", "Library"],
-    repo: "mfuentesg/StyLux",
-    githubUrl: "https://github.com/mfuentesg/StyLux",
-  },
-  {
-    title: "dotfiles",
-    description:
-      "Personal development environment configuration. A carefully curated collection of shell scripts, editor configs, and tooling setups for maximum productivity.",
-    tags: ["Shell", "Vim", "tmux", "Configuration"],
-    repo: "mfuentesg/dotfiles",
-    githubUrl: "https://github.com/mfuentesg/dotfiles",
-  },
 ]
 
 export function ProjectsSection() {
@@ -96,7 +64,7 @@ export function ProjectsSection() {
         <AnimateOnScroll variant="fade-left">
           <SectionHeader index="02" title="Projects" />
         </AnimateOnScroll>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4">
           {projects.map((project, i) => (
             <AnimateOnScroll key={project.title} variant="fade-scale" delay={i * 0.1}>
               <ProjectCard
