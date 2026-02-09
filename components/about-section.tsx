@@ -2,18 +2,18 @@ import { SectionHeader } from "@/components/section-header"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 
 const skills = [
-  "JavaScript",
+  "Golang",
+  "Node.js",
   "TypeScript",
-  "Go",
   "React",
   "Next.js",
-  "Node.js",
-  "Python",
-  "PostgreSQL",
+  "Kubernetes (AKS)",
   "Docker",
-  "AWS",
-  "Git",
-  "Linux",
+  "Terraform",
+  "gRPC",
+  "Cloudflare",
+  "PostgreSQL",
+  "System Design",
 ]
 
 export function AboutSection() {
@@ -27,16 +27,21 @@ export function AboutSection() {
           <AnimateOnScroll variant="fade-up" delay={0.1}>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
-                {"I'm a software engineer who's passionate about crafting clean, performant, and well-architected systems. I enjoy the entire spectrum of development "}
-                {"from low-level infrastructure to polished user interfaces."}
+                {"Senior Software Engineer & former Engineering Manager with 10+ years building, scaling, and operating high-traffic systems across e-commerce platforms. "}
+                {"I combine deep technical expertise with leadership experience, having contributed to several core domains including Pricing, Catalog, Pre-purchase, and Fulfillment."}
               </p>
               <p>
-                {"When I'm not writing code, you'll probably find me spending time with my family, playing the trumpet, or exploring new technologies. "}
-                {"I believe in continuous learning and contributing to the open-source community."}
+                {"My background is full-stack with strong backend and infrastructure fundamentals. I design and build microservices using Golang and Node.js, create modern frontends "}
+                {"with React and Next.js, and deploy large-scale applications in cloud-native environments using Kubernetes, Docker, Terraform, and CI/CD pipelines. "}
+                {"I also work on critical network components such as DNS, CDN optimization, caching layers, and traffic routing."}
               </p>
               <p>
-                {"I've had the privilege of working across a variety of environments from startups to larger organizations, always focusing on delivering high-quality software "}
-                {"that solves real problems."}
+                {"As an Engineering Manager, I led teams of up to 14 engineers, driving architecture, code quality, mentoring, and technical direction. "}
+                {"I have extensive experience collaborating with international teams to align global architecture with local market needs."}
+              </p>
+              <p>
+                {"I'm exploring opportunities as a Senior Software Engineer, Staff Engineer, or Technical Lead, where I can stay hands-on, influence technical decisions, "}
+                {"and help build high-impact, scalable, and reliable systems."}
               </p>
             </div>
           </AnimateOnScroll>
