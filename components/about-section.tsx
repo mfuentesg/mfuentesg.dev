@@ -23,25 +23,16 @@ export function AboutSection() {
         <AnimateOnScroll variant="fade-left">
           <SectionHeader index="01" title="About" />
         </AnimateOnScroll>
-        <div className="grid gap-12 md:grid-cols-[1fr_300px]">
+        <div className="grid gap-12 md:grid-col|  1s-[1fr_300px]">
           <AnimateOnScroll variant="fade-up" delay={0.1}>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
-                {"Senior Software Engineer & former Engineering Manager with 10+ years building, scaling, and operating high-traffic systems across e-commerce platforms. "}
-                {"I combine deep technical expertise with leadership experience, having contributed to several core domains including Pricing, Catalog, Pre-purchase, and Fulfillment."}
+                {"Senior Software Engineer & former Engineering Manager with 10+ years at Walmart building high-traffic e-commerce systems. "}
+                {"Full-stack expertise in microservices (Golang, Node.js), cloud infrastructure (Kubernetes, Docker, Terraform), and modern frontends (React, Next.js). "}
+                {"Led teams of up to 14 engineers on architecture, mentoring, and technical strategy."}
               </p>
               <p>
-                {"My background is full-stack with strong backend and infrastructure fundamentals. I design and build microservices using Golang and Node.js, create modern frontends "}
-                {"with React and Next.js, and deploy large-scale applications in cloud-native environments using Kubernetes, Docker, Terraform, and CI/CD pipelines. "}
-                {"I also work on critical network components such as DNS, CDN optimization, caching layers, and traffic routing."}
-              </p>
-              <p>
-                {"As an Engineering Manager, I led teams of up to 14 engineers, driving architecture, code quality, mentoring, and technical direction. "}
-                {"I have extensive experience collaborating with international teams to align global architecture with local market needs."}
-              </p>
-              <p>
-                {"I'm exploring opportunities as a Senior Software Engineer, Staff Engineer, or Technical Lead, where I can stay hands-on, influence technical decisions, "}
-                {"and help build high-impact, scalable, and reliable systems."}
+                {"Seeking a Senior Engineer or Staff Engineer role where I can stay hands-on, influence technical decisions, and build scalable, reliable systems."}
               </p>
             </div>
           </AnimateOnScroll>
