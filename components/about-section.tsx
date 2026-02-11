@@ -1,20 +1,6 @@
 import { SectionHeader } from "@/components/section-header"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
-
-const skills = [
-  "Golang",
-  "Node.js",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Kubernetes (AKS)",
-  "Docker",
-  "Terraform",
-  "gRPC",
-  "Cloudflare",
-  "PostgreSQL",
-  "System Design",
-]
+import { SKILLS } from "@/lib/constants"
 
 export function AboutSection() {
   return (
@@ -23,7 +9,7 @@ export function AboutSection() {
         <AnimateOnScroll variant="fade-left">
           <SectionHeader index="01" title="About" />
         </AnimateOnScroll>
-        <div className="grid gap-12 md:grid-col|  1s-[1fr_300px]">
+        <div className="grid gap-12 md:grid-cols-[1fr_300px]">
           <AnimateOnScroll variant="fade-up" delay={0.1}>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
@@ -42,7 +28,7 @@ export function AboutSection() {
                 {"// tech_stack"}
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                {skills.map((skill) => (
+                {SKILLS.map((skill) => (
                   <div
                     key={skill}
                     className="flex items-center gap-2 font-mono text-xs text-muted-foreground"
