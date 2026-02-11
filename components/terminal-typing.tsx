@@ -1,111 +1,148 @@
 "use client"
 
-import { useEffect, useRef, useCallback } from "react"
+import { useEffect, useRef, useState } from "react"
 
+/**
+ * Props for the TerminalTyping component
+ */
 interface TerminalTypingProps {
-  lines: string[]
+  /** Array of text lines to display with typing animation */
+  lines: readonly string[]
+  /** Speed of typing animation in milliseconds (default: 40) */
   speed?: number
 }
 
+/**
+ * Internal animation state for tracking typing progress
+ */
+interface LineState {
+  /** Current line being typed (0-indexed) */
+  lineIndex: number
+  /** Current character position within the line */
+  charIndex: number
+  /** Array of fully completed/partial lines displayed so far */
+  displayedLines: string[]
+  /** Whether to show the blinking cursor */
+  showCursor: boolean
+}
+
+/**
+ * Terminal Typing Animation Component
+ * 
+ * Animates text as if being typed in a terminal, printing one character at a time
+ * for each line. Includes proper line breaks and cursor blinking.
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * <TerminalTyping
+ *   lines={["Hello", "World"]}
+ *   speed={50}
+ * />
+ * ```
+ */
 export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const animationRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const animate = useCallback(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    let lineIndex = 0
-    let charIndex = 0
-
-    function createLineElement(index: number) {
-      const div = document.createElement("div")
-      div.className = "flex items-start gap-2"
-      const arrow = document.createElement("span")
-      arrow.className = "select-none text-primary/50"
-      arrow.textContent = ">"
-      const text = document.createElement("span")
-      text.className = "text-foreground"
-      text.setAttribute("data-line", String(index))
-      div.appendChild(arrow)
-      div.appendChild(text)
-      return { div, text }
-    }
-
-    function addCursor(parent: Element) {
-      const existing = parent.querySelector("[data-cursor]")
-      if (existing) return
-      const cursor = document.createElement("span")
-      cursor.className = "ml-0.5 inline-block h-4 w-2 bg-primary align-middle"
-      cursor.style.animation = "blink 1s step-end infinite"
-      cursor.setAttribute("data-cursor", "true")
-      parent.appendChild(cursor)
-    }
-
-    function removeCursor() {
-      const cursor = container?.querySelector("[data-cursor]")
-      if (cursor) cursor.remove()
-    }
-
-    const { div: firstDiv, text: firstText } = createLineElement(0)
-    addCursor(firstText)
-    container.appendChild(firstDiv)
-
-    function step() {
-      if (lineIndex >= lines.length) {
-        removeCursor()
-        const finalDiv = document.createElement("div")
-        finalDiv.className = "flex items-start gap-2"
-        const finalArrow = document.createElement("span")
-        finalArrow.className = "select-none text-primary/50"
-        finalArrow.textContent = ">"
-        const finalCursor = document.createElement("span")
-        finalCursor.className = "inline-block h-4 w-2 bg-primary"
-        finalCursor.style.animation = "blink 1s step-end infinite"
-        finalDiv.appendChild(finalArrow)
-        finalDiv.appendChild(finalCursor)
-        container.appendChild(finalDiv)
-        return
-      }
-
-      const currentLine = lines[lineIndex]
-      const textEl = container.querySelector(`[data-line="${lineIndex}"]`)
-
-      if (charIndex <= currentLine.length) {
-        if (textEl) {
-          removeCursor()
-          textEl.textContent = currentLine.slice(0, charIndex)
-          addCursor(textEl)
-        }
-        charIndex++
-        animationRef.current = setTimeout(step, speed)
-      } else {
-        removeCursor()
-        lineIndex++
-        charIndex = 0
-        if (lineIndex < lines.length) {
-          const { div: nextDiv, text: nextText } = createLineElement(lineIndex)
-          addCursor(nextText)
-          container.appendChild(nextDiv)
-        }
-        animationRef.current = setTimeout(step, 300)
-      }
-    }
-
-    animationRef.current = setTimeout(step, 500)
-  }, [lines, speed])
+  const [state, setState] = useState<LineState>({
+    lineIndex: 0,
+    charIndex: 0,
+    displayedLines: [],
+    showCursor: true,
+  })
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    animate()
-    return () => {
-      if (animationRef.current) clearTimeout(animationRef.current)
+    const animate = () => {
+      setState((prevState) => {
+        const { lineIndex, charIndex, displayedLines } = prevState
+
+        // Animation complete
+        if (lineIndex >= lines.length) {
+          return {
+            ...prevState,
+            showCursor: true,
+          }
+        }
+
+        const currentLine = lines[lineIndex]
+
+        if (charIndex < currentLine.length) {
+          // Update current line with new character
+          const newDisplayedLines = [...displayedLines]
+          newDisplayedLines[lineIndex] = currentLine.slice(0, charIndex + 1)
+
+          timeoutRef.current = setTimeout(animate, speed)
+
+          return {
+            ...prevState,
+            charIndex: charIndex + 1,
+            displayedLines: newDisplayedLines,
+            showCursor: true,
+          }
+        } else {
+          // Move to next line
+          if (lineIndex + 1 < lines.length) {
+            const newDisplayedLines = [...displayedLines]
+            newDisplayedLines[lineIndex + 1] = ""
+
+            timeoutRef.current = setTimeout(animate, 300)
+
+            return {
+              ...prevState,
+              lineIndex: lineIndex + 1,
+              charIndex: 0,
+              displayedLines: newDisplayedLines,
+              showCursor: true,
+            }
+          } else {
+            // Final state
+            return {
+              ...prevState,
+              lineIndex: lineIndex + 1,
+              showCursor: true,
+            }
+          }
+        }
+      })
     }
-  }, [animate])
+
+    timeoutRef.current = setTimeout(animate, 500)
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [lines, speed])
 
   return (
-    <div
-      ref={containerRef}
-      className="font-mono text-sm leading-relaxed md:text-base"
-    />
+    <div className="space-y-0">
+      {lines.map((line, idx) => (
+        <div key={idx} className="flex items-start gap-2">
+          <span className="select-none text-primary/50">{">"}</span>
+          <span className="text-foreground">
+            {state.displayedLines[idx] ?? ""}
+            {idx === state.lineIndex && state.showCursor && (
+              <span
+                className="ml-0.5 inline-block h-4 w-2 bg-primary"
+                style={{
+                  animation: "blink 1s step-end infinite",
+                }}
+              />
+            )}
+          </span>
+        </div>
+      ))}
+      {state.lineIndex >= lines.length && (
+        <div className="flex items-start gap-2">
+          <span className="select-none text-primary/50">{">"}</span>
+          <span
+            className="inline-block h-4 w-2 bg-primary"
+            style={{
+              animation: "blink 1s step-end infinite",
+            }}
+          />
+        </div>
+      )}
+    </div>
   )
 }
