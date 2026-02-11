@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /.next/
+Disallow: /node_modules/
+
+Crawl-delay: 1
+
+Sitemap: https://mfuentesg.dev/sitemap.xml
