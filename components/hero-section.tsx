@@ -2,6 +2,7 @@
 
 import { TerminalTyping } from "@/components/terminal-typing"
 import { SocialLinks } from "@/components/social-links"
+import { HERO_TERMINAL_LINES, HERO_TERMINAL_SPEED } from "@/lib/constants"
 
 export function HeroSection() {
   return (
@@ -24,13 +25,8 @@ export function HeroSection() {
             <span className="ml-2 font-mono text-[11px] text-muted-foreground">~/marcelo</span>
           </div>
           <TerminalTyping
-            lines={[
-              "Father",
-              "Trumpet Player",
-              "Software Engineer",
-              "Building things for the web.",
-            ]}
-            speed={35}
+            lines={HERO_TERMINAL_LINES}
+            speed={HERO_TERMINAL_SPEED}
           />
         </div>
         <div className="animate-fade-in-up animation-delay-500">

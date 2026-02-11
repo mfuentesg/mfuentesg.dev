@@ -4,14 +4,8 @@ import React from "react"
 
 import { useState, useCallback } from "react"
 import { Nav } from "@/components/nav"
+import { NAV_LINKS } from "@/lib/constants"
 import { Menu, X } from "lucide-react"
-
-const links = [
-  { label: "about", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "writing", href: "#writing" },
-  { label: "contact", href: "#contact" },
-]
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -56,7 +50,7 @@ export function Header() {
       {mobileOpen && (
         <div className="border-t border-border bg-background/95 px-6 py-4 backdrop-blur-md md:hidden">
           <div className="flex flex-col gap-4">
-            {links.map((link) => (
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

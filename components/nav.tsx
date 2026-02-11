@@ -3,13 +3,7 @@
 import React from "react"
 
 import { useState, useCallback } from "react"
-
-const links = [
-  { label: "about", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "writing", href: "#writing" },
-  { label: "contact", href: "#contact" },
-]
+import { NAV_LINKS } from "@/lib/constants"
 
 export function Nav() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -24,7 +18,7 @@ export function Nav() {
 
   return (
     <nav className="flex items-center gap-8" role="navigation" aria-label="Main navigation">
-      {links.map((link, i) => (
+      {NAV_LINKS.map((link, i) => (
         <a
           key={link.href}
           href={link.href}
