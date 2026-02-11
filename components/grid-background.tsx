@@ -1,6 +1,8 @@
 "use client"
 
-export function GridBackground() {
+import { memo } from "react"
+
+export const GridBackground = memo(function GridBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* Grid pattern */}
@@ -33,4 +35,5 @@ export function GridBackground() {
       />
     </div>
   )
-}
+})
+

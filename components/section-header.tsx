@@ -1,9 +1,11 @@
+import { memo } from "react"
+
 interface SectionHeaderProps {
   index: string
   title: string
 }
 
-export function SectionHeader({ index, title }: SectionHeaderProps) {
+export const SectionHeader = memo(function SectionHeader({ index, title }: SectionHeaderProps) {
   return (
     <div className="mb-10 flex items-center gap-4">
       <span className="font-mono text-sm text-primary">{index}</span>
@@ -13,4 +15,4 @@ export function SectionHeader({ index, title }: SectionHeaderProps) {
       <div className="h-px flex-1 bg-border" />
     </div>
   )
-}
+})
