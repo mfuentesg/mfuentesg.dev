@@ -10,6 +10,7 @@ interface ProjectCardProps {
   archived?: boolean
   githubUrl?: string
   liveUrl?: string
+  isLoading?: boolean
 }
 
 export function ProjectCard({
