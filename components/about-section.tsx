@@ -13,12 +13,20 @@ export function AboutSection() {
           <AnimateOnScroll variant="fade-up" delay={0.1}>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
-                {"Senior Software Engineer & former Engineering Manager with 10+ years at Walmart building high-traffic e-commerce systems. "}
-                {"Full-stack expertise in microservices (Golang, Node.js), cloud infrastructure (Kubernetes, Docker, Terraform), and modern frontends (React, Next.js). "}
-                {"Led teams of up to 14 engineers on architecture, mentoring, and technical strategy."}
+                {
+                  "Senior Software Engineer & former Engineering Manager with 10+ years at Walmart building high-traffic e-commerce systems. "
+                }
+                {
+                  "Full-stack expertise in microservices (Golang, Node.js), cloud infrastructure (Kubernetes, Docker, Terraform), and modern frontends (React, Next.js). "
+                }
+                {
+                  "Led teams of up to 14 engineers on architecture, mentoring, and technical strategy."
+                }
               </p>
               <p>
-                {"Seeking a Senior Engineer or Staff Engineer role where I can stay hands-on, influence technical decisions, and build scalable, reliable systems."}
+                {
+                  "Seeking a Senior Engineer or Staff Engineer role where I can stay hands-on, influence technical decisions, and build scalable, reliable systems."
+                }
               </p>
             </div>
           </AnimateOnScroll>

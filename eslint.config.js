@@ -1,5 +1,6 @@
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import js from "@eslint/js"
+import tseslint from "typescript-eslint"
+import prettier from "eslint-config-prettier"
 
 export default [
   {
@@ -11,8 +12,8 @@ export default [
       "*.config.ts",
       "public",
       "out",
-      "dist",
-    ],
+      "dist"
+    ]
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -23,11 +24,12 @@ export default [
         "warn",
         {
           argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-        },
+          varsIgnorePattern: "^_"
+        }
       ],
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-require-imports": "warn",
-    },
+      "@typescript-eslint/no-require-imports": "warn"
+    }
   },
-];
+  prettier
+]

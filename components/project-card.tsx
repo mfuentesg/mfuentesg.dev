@@ -20,7 +20,7 @@ export function ProjectCard({
   stars,
   archived,
   githubUrl,
-  liveUrl,
+  liveUrl
 }: ProjectCardProps) {
   return (
     <div className="group relative flex flex-col rounded-lg border border-border bg-card/30 p-6 transition-all hover:border-primary/30 hover:bg-card/60">
@@ -68,10 +68,7 @@ export function ProjectCard({
       <div className="flex items-center justify-between">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-mono text-[11px] text-muted-foreground"
-            >
+            <span key={tag} className="font-mono text-[11px] text-muted-foreground">
               {tag}
             </span>
           ))}

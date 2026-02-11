@@ -24,10 +24,7 @@ export function HeroSection() {
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/60" />
             <span className="ml-2 font-mono text-[11px] text-muted-foreground">~/marcelo</span>
           </div>
-          <TerminalTyping
-            lines={HERO_TERMINAL_LINES}
-            speed={HERO_TERMINAL_SPEED}
-          />
+          <TerminalTyping lines={HERO_TERMINAL_LINES} speed={HERO_TERMINAL_SPEED} />
         </div>
         <div className="animate-fade-in-up animation-delay-500">
           <SocialLinks />

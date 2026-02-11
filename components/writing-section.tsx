@@ -32,7 +32,9 @@ export function WritingSection() {
                 <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                {"I write about software engineering, technology, and the things I learn along the way. Thoughts on building software, developer tools, and the craft of programming."}
+                {
+                  "I write about software engineering, technology, and the things I learn along the way. Thoughts on building software, developer tools, and the craft of programming."
+                }
               </p>
               <div className="mt-5 inline-flex items-center gap-2 font-mono text-xs text-primary">
                 <span>{">"}</span>

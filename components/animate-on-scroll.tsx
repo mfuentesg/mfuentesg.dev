@@ -31,15 +31,15 @@ interface AnimateOnScrollProps {
 const animationMap: Record<AnimationVariant, string> = {
   "fade-up": "reveal-up",
   "fade-scale": "reveal-scale",
-  "fade-left": "reveal-left",
+  "fade-left": "reveal-left"
 }
 
 /**
  * Animate On Scroll Component
- * 
+ *
  * Triggers CSS animations when elements become visible during scrolling.
  * Uses IntersectionObserver for performance, only triggering the animation once.
- * 
+ *
  * @component
  * @example
  * ```tsx
@@ -54,7 +54,7 @@ export function AnimateOnScroll({
   delay = 0,
   duration = 0.6,
   className = "",
-  threshold = 0.15,
+  threshold = 0.15
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -79,7 +79,7 @@ export function AnimateOnScroll({
   const style: CSSProperties = {
     opacity: 0,
     animation: `${animationMap[variant]} ${duration}s ease-out ${delay}s forwards`,
-    animationPlayState: "paused",
+    animationPlayState: "paused"
   }
 
   return (

@@ -12,7 +12,9 @@ export function ContactSection() {
         <div className="mx-auto max-w-lg text-center">
           <AnimateOnScroll variant="fade-up" delay={0.1}>
             <p className="mb-6 text-muted-foreground">
-              {"I'm always open to new opportunities, collaborations, or just a friendly chat about technology. Feel free to reach out."}
+              {
+                "I'm always open to new opportunities, collaborations, or just a friendly chat about technology. Feel free to reach out."
+              }
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-scale" delay={0.2}>

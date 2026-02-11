@@ -13,7 +13,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "about", href: "#about" },
   { label: "projects", href: "#projects" },
   { label: "writing", href: "#writing" },
-  { label: "contact", href: "#contact" },
+  { label: "contact", href: "#contact" }
 ] as const
 
 /**
@@ -25,7 +25,7 @@ export const HERO_TERMINAL_LINES = [
   "Father",
   "Trumpet Player",
   "Software Engineer",
-  "Building things for the web.",
+  "Building things for the web."
 ] as const
 
 /**
@@ -58,7 +58,7 @@ export const PROJECTS: ProjectData[] = [
       "Kubernetes secret decoder. A CLI tool to visualize your Kubernetes secrets in plain text, supporting both YAML and JSON outputs. Installable via Go or Homebrew.",
     tags: ["Go", "Kubernetes", "CLI", "DevOps"],
     repo: "mfuentesg/ksd",
-    githubUrl: "https://github.com/mfuentesg/ksd",
+    githubUrl: "https://github.com/mfuentesg/ksd"
   },
   {
     title: "SyncSettings",
@@ -67,8 +67,8 @@ export const PROJECTS: ProjectData[] = [
     tags: ["Python", "Sublime Text", "GitHub Gists"],
     repo: "mfuentesg/SyncSettings",
     archived: true,
-    githubUrl: "https://github.com/mfuentesg/SyncSettings",
-  },
+    githubUrl: "https://github.com/mfuentesg/SyncSettings"
+  }
 ]
 
 /**
@@ -88,7 +88,7 @@ export const SKILLS = [
   "gRPC",
   "Cloudflare",
   "PostgreSQL",
-  "System Design",
+  "System Design"
 ] as const
 
 /**
@@ -100,26 +100,26 @@ export const SOCIAL_LINKS: SocialLink[] = [
     icon: "Github",
     label: "GitHub",
     url: "https://github.com/mfuentesg",
-    ariaLabel: "Visit my GitHub profile",
+    ariaLabel: "Visit my GitHub profile"
   },
   {
     icon: "Linkedin",
     label: "LinkedIn",
     url: "https://linkedin.com/in/mfuentesg",
-    ariaLabel: "Visit my LinkedIn profile",
+    ariaLabel: "Visit my LinkedIn profile"
   },
   {
     icon: "Mail",
     label: "Email",
     url: "mailto:hello@mfuentesg.dev",
-    ariaLabel: "Send me an email",
+    ariaLabel: "Send me an email"
   },
   {
     icon: "BookOpen",
     label: "Writing",
     url: "https://substack.com/@mfuentesg",
-    ariaLabel: "Read my writing on Substack",
-  },
+    ariaLabel: "Read my writing on Substack"
+  }
 ] as const
 
 /**
@@ -135,8 +135,8 @@ export const ANIMATION_CONFIG = {
     FAST: 100,
     NORMAL: 150,
     SLOW: 300,
-    VERY_SLOW: 500,
-  },
+    VERY_SLOW: 500
+  }
 } as const
 
 /**
@@ -152,7 +152,7 @@ export const TWITTER_HANDLE = "@mfuentesg"
  * API endpoint builders and configuration
  */
 export const API = {
-  GITHUB_REPOS: (repo: string) => `https://api.github.com/repos/${repo}`,
+  GITHUB_REPOS: (repo: string) => `https://api.github.com/repos/${repo}`
 } as const
 
 /**
@@ -166,6 +166,6 @@ export const STATUS_BAR_CONFIG = {
     hour: "2-digit" as const,
     minute: "2-digit" as const,
     second: "2-digit" as const,
-    hour12: false,
-  },
-} as const;
+    hour12: false
+  }
+} as const

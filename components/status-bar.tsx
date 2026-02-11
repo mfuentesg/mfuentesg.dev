@@ -12,13 +12,13 @@ export function StatusBar() {
       const now = new Date()
       setTime(now.toLocaleTimeString(STATUS_BAR_CONFIG.LOCALE, STATUS_BAR_CONFIG.TIME_FORMAT))
     }
-    
+
     updateTime()
-    
+
     // Only update on minute change for performance (not every second)
     const now = new Date()
     const msUntilNextSecond = (60 - now.getSeconds()) * 1000 - now.getMilliseconds()
-    
+
     const timeout = setTimeout(() => {
       updateTime()
       const interval = setInterval(updateTime, STATUS_BAR_CONFIG.TIME_UPDATE_INTERVAL)

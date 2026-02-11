@@ -7,7 +7,7 @@ const iconMap = {
   Github,
   Linkedin,
   Mail,
-  BookOpen,
+  BookOpen
 } as const
 
 export const SocialLinks = memo(function SocialLinks() {

@@ -28,10 +28,10 @@ interface LineState {
 
 /**
  * Terminal Typing Animation Component
- * 
+ *
  * Animates text as if being typed in a terminal, printing one character at a time
  * for each line. Includes proper line breaks and cursor blinking.
- * 
+ *
  * @component
  * @example
  * ```tsx
@@ -46,7 +46,7 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
     lineIndex: 0,
     charIndex: 0,
     displayedLines: [],
-    showCursor: true,
+    showCursor: true
   })
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -59,7 +59,7 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
         if (lineIndex >= lines.length) {
           return {
             ...prevState,
-            showCursor: true,
+            showCursor: true
           }
         }
 
@@ -76,7 +76,7 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
             ...prevState,
             charIndex: charIndex + 1,
             displayedLines: newDisplayedLines,
-            showCursor: true,
+            showCursor: true
           }
         } else {
           // Move to next line
@@ -91,14 +91,14 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
               lineIndex: lineIndex + 1,
               charIndex: 0,
               displayedLines: newDisplayedLines,
-              showCursor: true,
+              showCursor: true
             }
           } else {
             // Final state
             return {
               ...prevState,
               lineIndex: lineIndex + 1,
-              showCursor: true,
+              showCursor: true
             }
           }
         }
@@ -125,7 +125,7 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
               <span
                 className="ml-0.5 inline-block h-4 w-2 bg-primary"
                 style={{
-                  animation: "blink 1s step-end infinite",
+                  animation: "blink 1s step-end infinite"
                 }}
               />
             )}
@@ -138,7 +138,7 @@ export function TerminalTyping({ lines, speed = 40 }: TerminalTypingProps) {
           <span
             className="inline-block h-4 w-2 bg-primary"
             style={{
-              animation: "blink 1s step-end infinite",
+              animation: "blink 1s step-end infinite"
             }}
           />
         </div>

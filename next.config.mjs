@@ -5,79 +5,79 @@ const nextConfig = {
 
   // Enable experimental optimizations
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ["lucide-react"]
   },
 
   // Configure image optimization
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
   },
 
   // Add cache headers for better performance
   headers: async () => [
     {
-      source: '/manifest.json',
+      source: "/manifest.json",
       headers: [
         {
-          key: 'Cache-Control',
-          value: 'public, max-age=604800, immutable',
+          key: "Cache-Control",
+          value: "public, max-age=604800, immutable"
         },
         {
-          key: 'Content-Type',
-          value: 'application/manifest+json',
-        },
-      ],
+          key: "Content-Type",
+          value: "application/manifest+json"
+        }
+      ]
     },
     {
-      source: '/sw.js',
+      source: "/sw.js",
       headers: [
         {
-          key: 'Cache-Control',
-          value: 'public, max-age=0, must-revalidate',
+          key: "Cache-Control",
+          value: "public, max-age=0, must-revalidate"
         },
         {
-          key: 'Service-Worker-Allowed',
-          value: '/',
-        },
-      ],
+          key: "Service-Worker-Allowed",
+          value: "/"
+        }
+      ]
     },
     {
-      source: '/sitemap.xml',
+      source: "/sitemap.xml",
       headers: [
         {
-          key: 'Content-Type',
-          value: 'application/xml',
-        },
-      ],
+          key: "Content-Type",
+          value: "application/xml"
+        }
+      ]
     },
     {
-      source: '/robots.txt',
+      source: "/robots.txt",
       headers: [
         {
-          key: 'Content-Type',
-          value: 'text/plain',
-        },
-      ],
+          key: "Content-Type",
+          value: "text/plain"
+        }
+      ]
     },
     {
-      source: '/(.*)',
+      source: "/(.*)",
       headers: [
         {
-          key: 'Cache-Control',
-          value: 'public, max-age=3600, s-maxage=604800',
+          key: "Cache-Control",
+          value: "public, max-age=3600, s-maxage=604800"
         },
         {
-          key: 'X-Content-Type-Options',
-          value: 'nosniff',
+          key: "X-Content-Type-Options",
+          value: "nosniff"
         },
         {
-          key: 'Referrer-Policy',
-          value: 'strict-origin-when-cross-origin',
-        },
-      ],
-    },
+          key: "Referrer-Policy",
+          value: "strict-origin-when-cross-origin"
+        }
+      ]
+    }
   ],
 
   // Add rewrites for static files
@@ -85,15 +85,15 @@ const nextConfig = {
     beforeFiles: [],
     afterFiles: [
       {
-        source: '/sitemap.xml',
-        destination: '/sitemap.xml',
+        source: "/sitemap.xml",
+        destination: "/sitemap.xml"
       },
       {
-        source: '/robots.txt',
-        destination: '/robots.txt',
-      },
-    ],
-  }),
+        source: "/robots.txt",
+        destination: "/robots.txt"
+      }
+    ]
+  })
 }
 
 export default nextConfig

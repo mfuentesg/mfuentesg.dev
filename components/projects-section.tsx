@@ -14,7 +14,7 @@ export function ProjectsSection() {
     try {
       setIsLoading(true)
       const results: Record<string, number> = {}
-      
+
       await Promise.all(
         PROJECTS.map(async (project) => {
           try {
@@ -32,7 +32,7 @@ export function ProjectsSection() {
           }
         })
       )
-      
+
       setStars(results)
     } finally {
       setIsLoading(false)
@@ -52,11 +52,7 @@ export function ProjectsSection() {
         <div className="grid gap-4">
           {PROJECTS.map((project, i) => (
             <AnimateOnScroll key={project.title} variant="fade-scale" delay={i * 0.1}>
-              <ProjectCard
-                {...project}
-                stars={stars[project.repo]}
-                isLoading={isLoading}
-              />
+              <ProjectCard {...project} stars={stars[project.repo]} isLoading={isLoading} />
             </AnimateOnScroll>
           ))}
         </div>

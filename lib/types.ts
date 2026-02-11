@@ -17,7 +17,7 @@ export interface NavLink {
 export interface SocialLink {
   label: string
   url: string
-  icon: 'Github' | 'Linkedin' | 'Mail' | 'BookOpen'
+  icon: "Github" | "Linkedin" | "Mail" | "BookOpen"
   ariaLabel: string
 }
 
@@ -65,6 +65,6 @@ export interface AnimationConfig {
  */
 export interface ApiEndpoint {
   url: string
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  method: "GET" | "POST" | "PUT" | "DELETE"
   timeout?: number
 }
